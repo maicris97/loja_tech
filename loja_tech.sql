@@ -810,3 +810,8 @@ select * from pedido;
 select * from item_pedido;
 select * from pagamento;
 
+select nome, marca, preco from produto;
+select cnpj, email from fornecedor;
+select * from cliente;
+select nome,estado from cliente where estado = "SP";
+
