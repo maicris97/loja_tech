@@ -580,3 +580,61 @@ select * from pagamento where data_pagamento is null;
 select nome,preco from produto where preco > 1000 and marca = 'dell' order by preco;
 select * from cliente where estado in ('SP','PR') and nome like "%a"; 
 select  nome,marca,preco from produto where preco between 500 and 3000 and marca like "a%" order by preco;
+
+select * from cliente;
+select nome,email from cliente order by nome;
+select nome,preco from produto order by preco desc;
+
+select nome,marca,preco from produto order by marca asc;
+select * from pedido order by valor_total desc;
+select * from cliente where nome like 'a%';
+
+select * from cliente where nome like '%ana%';
+select * from produto where preco between 1000 and 5000;
+select salario from funcionario where salario between 5000 and 8000 order by salario asc;
+
+select * from cliente where estado in('sp','pr','rj');
+select * from pedido where status in ('CONCLUIDO','CANCELADOS');
+select nome,preco from produto where preco > 1000 and marca like '%o%' order by preco desc;
+
+select * from produto;
+select nome,salario from funcionario where salario between 5000 and 8000 order by salario desc;
+select nome,marca,preco from produto where preco between 500 and 3000 and marca like '%s%' order by preco asc;
+select * from pedido where status = 'concluido' and valor_total > 1000 order by valor_total desc;
+
+select count(*) as quantidade_clientes from cliente;
+select count(*) as quantidade_produtos from produto;
+select count(*) as quantidade_funcionarios from funcionario;
+
+select sum(salario) as soma_salario from funcionario;
+select count(*) as total_funcionario, sum(salario) as soma_salario from funcionario;
+select round(avg(salario)) as media_salario from funcionario;
+
+select max(salario) as maior_salario from funcionario;
+select min(salario) as menor_salario from funcionario;
+
+select sum(preco) as total_preco from produto;
+select round(avg(preco)) as preco_medio from produto;
+select max(preco) as preco_max, min(preco) as preco_min, round(avg(preco)) as preco_medio from produto;
+select count(*) as quantidade_pedidos from pedido;
+select estado, count(*) as quantidade from cliente group by estado;
+select cidade, count(*) as quantidade from cliente group by cidade;
+
+select cargo, count(*) as  quantidade from funcionario group by cargo;
+select cargo, round(avg(salario)) as media_salario from funcionario group by cargo; 
+select cargo,max(salario) as maior_salario, min(salario) as menor_salario from funcionario group by cargo;
+select marca,count(*) as quantidade from produto group by marca;
+
+select id_categoria,count(*) as quantidade from produto group by id_categoria;
+select status, count(*) as quantidade_pedidos from pedido group by status;
+select estado, count(*) as quantidade from cliente group by estado order by estado desc;
+select cidade,count(*) as quantidade_clientes from cliente group by cidade order by cidade;
+
+select cargo, round(avg(salario)) as media_salario from funcionario group by cargo order by media_salario desc;
+select estado, count(*) as quantidade from cliente group by estado having count(*) > 3;
+
+select cidade, count(*) as quantidade from cliente group by cidade having count(*) > 1;
+select cargo,count(*) as quantidade from funcionario group by cargo having count(*) > 1;
+
+select estado,count(*) as quantidade from cliente where data_cadastro >= '2023-01-01' group by estado;
+select cargo,round(avg(salario)) as media_salario from funcionario where salario > 4000 group by cargo;
